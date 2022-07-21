@@ -12,6 +12,7 @@ import CameraScreen from '../screens/CameraScreen';
 import ChatsScreen from '../screens/ChatsScreen';
 import StatusScreen from '../screens/StatusScreen';
 import CallsScreen from '../screens/CallsScreen';
+import { Fontisto } from '@expo/vector-icons';
 
 const MainTab = createMaterialTopTabNavigator<RootTabParamList>();
 
@@ -35,14 +36,19 @@ export default function MainTabNavigator() {
           fontWeight: '900',
           fontSize: 13,
         },
+        tabBarShowIcon: true,
       }}
     >
       <MainTab.Screen
         name="Camera"
         component={CameraScreen}
         options={({ navigation }: RootTabScreenProps<'Camera'>) => ({
-          title: 'Camera',
-          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          // title: 'Camera',
+
+          tabBarIcon: ({ color }) => (
+            <Fontisto name="camera" color={color} size={18} />
+          ),
+          tabBarLabel: () => null,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -61,36 +67,18 @@ export default function MainTabNavigator() {
         })}
       />
 
-      <MainTab.Screen
-        name="Chats"
-        component={ChatsScreen}
-        options={{
-          title: 'Chats',
-        }}
-      />
+      <MainTab.Screen name="Chats" component={ChatsScreen} />
 
-      <MainTab.Screen
-        name="Status"
-        component={StatusScreen}
-        options={{
-          title: 'Status',
-        }}
-      />
+      <MainTab.Screen name="Status" component={StatusScreen} />
 
-      <MainTab.Screen
-        name="Calls"
-        component={CallsScreen}
-        options={{
-          title: 'Calls',
-        }}
-      />
+      <MainTab.Screen name="Calls" component={CallsScreen} />
     </MainTab.Navigator>
   );
 }
 
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>['name'];
+//   color: string;
+// }) {
+//   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+// }
