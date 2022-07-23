@@ -7,7 +7,7 @@ const ChatsListItemStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     width: '100%',
-    height: 50,
+    height: 70,
     padding: 10,
   },
   ChatRoomContainer__avatar: {
@@ -19,6 +19,7 @@ const ChatsListItemStyle = StyleSheet.create({
     width: 50,
     height: 50,
     margin: 5,
+    marginTop: 10,
     borderRadius: 25,
   },
   ChatRoomContainer__contents: {
@@ -41,6 +42,8 @@ const ChatsListItemStyle = StyleSheet.create({
   },
   ChatRoomContainer__lastMessage: {
     color: 'grey',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
 });
 
