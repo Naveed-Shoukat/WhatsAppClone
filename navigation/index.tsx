@@ -11,7 +11,7 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Image, Pressable, Text } from 'react-native';
 import { View } from '../components/Themed';
 import { Octicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import MainTabNavigator from './MainTabNavigator';
@@ -21,6 +21,9 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 
 import { RootStackParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
+import { RotateInUpLeft } from 'react-native-reanimated';
+import ChatRoomHeader from '../components/ChatRoomHeader/ChatRoomHeader';
 
 export default function Navigation({
   colorScheme,
@@ -89,6 +92,25 @@ function RootNavigator() {
           ),
         }}
       />
+
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={({ route }) => ({
+          headerShown: true,
+          title: '',
+          headerRight: () => (
+            <ChatRoomHeader
+              ChatRoomProps={{
+                id: route.params.id,
+                name: route.params.name,
+                imageUri: route.params.imageUri,
+              }}
+            />
+          ),
+        })}
+      />
+
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

@@ -1,6 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ChatRoom } from '../../types';
 import ChatsListItemStyle from './ChatsListItemStyle';
 
@@ -29,41 +30,55 @@ const ChatsListItem = (props: ChatListItemProps) => {
       return givenDate.format('DD/MM/YYYY');
     }
   }
-
+  const userImgUri = user.imageUri
+    ? user.imageUri
+    : 'https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png';
   getTimeOfLastMessage(ChatRoom.lastMessage.createdAt);
-  return (
-    <View style={ChatsListItemStyle.ChatRoomContainer}>
-      <View style={ChatsListItemStyle.ChatRoomContainer__avatar}>
-        <Image
-          // source={require('./avatr1.jpg')}
-          source={{ uri: user.imageUri }}
-          style={ChatsListItemStyle.avatar}
-        />
-      </View>
 
-      <View style={ChatsListItemStyle.ChatRoomContainer__contents}>
-        <View style={ChatsListItemStyle.ChatRoomContainer__header}>
-          <Text style={ChatsListItemStyle.ChatRoomContainer__title}>
-            {user.name}
-          </Text>
-          <Text style={ChatsListItemStyle.ChatRoomContainer__createdAt}>
-            {lastMessageTime}
-            {/* {moment(ChatRoom.lastMessage.createdAt).format('DD/MM/YYYY')} */}
-          </Text>
+  // Root navigation for ChatRoom
+  const navigation = useNavigation();
+  const onTouchChatListItem = () => {
+    navigation.navigate('ChatRoom', {
+      id: ChatRoom.id,
+      name: user.name,
+      imageUri: user.imageUri,
+    });
+  };
+  return (
+    <TouchableWithoutFeedback onPress={onTouchChatListItem}>
+      <View style={ChatsListItemStyle.ChatRoomContainer}>
+        <View style={ChatsListItemStyle.ChatRoomContainer__avatar}>
+          <Image
+            // source={require('./avatr1.jpg')}
+            source={{ uri: userImgUri }}
+            style={ChatsListItemStyle.avatar}
+          />
         </View>
-        <View>
-          <Text
-            style={ChatsListItemStyle.ChatRoomContainer__lastMessage}
-            numberOfLines={1}
-          >
-            {ChatRoom.lastMessage.content}
-            {/* {ChatRoom.lastMessage.content.length > 40
+
+        <View style={ChatsListItemStyle.ChatRoomContainer__contents}>
+          <View style={ChatsListItemStyle.ChatRoomContainer__header}>
+            <Text style={ChatsListItemStyle.ChatRoomContainer__title}>
+              {user.name}
+            </Text>
+            <Text style={ChatsListItemStyle.ChatRoomContainer__createdAt}>
+              {lastMessageTime}
+              {/* {moment(ChatRoom.lastMessage.createdAt).format('DD/MM/YYYY')} */}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={ChatsListItemStyle.ChatRoomContainer__lastMessage}
+              numberOfLines={1}
+            >
+              {ChatRoom.lastMessage.content}
+              {/* {ChatRoom.lastMessage.content.length > 40
               ? ChatRoom.lastMessage.content.slice(0, 40) + '...'
-              : ChatRoom.lastMessage.content} */}
-          </Text>
+            : ChatRoom.lastMessage.content} */}
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
