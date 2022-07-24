@@ -7,6 +7,8 @@ const ChatsListItemStyle = StyleSheet.create({
     width: '85%',
     height: 50,
     marginLeft: '15%',
+    marginRight: 10,
+    justifyContent: 'flex-end',
   },
   ChatRoomHeader__avatar: {
     width: 35,
@@ -21,7 +23,7 @@ const ChatsListItemStyle = StyleSheet.create({
     marginTop: 2,
   },
   ChatRoomHeader__title: {
-    width: '45%',
+    width: '50%',
     alignSelf: 'center',
   },
   ChatRoomHeader__name: {
@@ -34,11 +36,11 @@ const ChatsListItemStyle = StyleSheet.create({
     color: 'white',
   },
   ChatRoomHeader__icons: {
-    width: '25%',
+    width: '20%',
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
 });
 
