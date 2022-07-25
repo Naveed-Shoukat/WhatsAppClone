@@ -10,6 +10,11 @@
       "StackName": "amplify-whatsappclone-dev-155439",
       "StackId": "arn:aws:cloudformation:us-east-2:304443726306:stack/amplify-whatsappclone-dev-155439/f44e1620-0c18-11ed-a493-063d4f3399cc",
       "AmplifyAppId": "d3uci3mun1aq3e"
+    },
+    "categories": {
+      "auth": {
+        "whatsappclone7610566b": {}
+      }
     }
   }
 }
