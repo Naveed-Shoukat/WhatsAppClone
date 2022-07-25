@@ -37,6 +37,7 @@ const ChatsListItem = (props: ChatListItemProps) => {
 
   // Root navigation for ChatRoom
   const navigation = useNavigation();
+
   const onTouchChatListItem = () => {
     navigation.navigate('ChatRoom', {
       id: ChatRoom.id,
@@ -49,7 +50,6 @@ const ChatsListItem = (props: ChatListItemProps) => {
       <View style={ChatsListItemStyle.ChatRoomContainer}>
         <View style={ChatsListItemStyle.ChatRoomContainer__avatar}>
           <Image
-            // source={require('./avatr1.jpg')}
             source={{ uri: userImgUri }}
             style={ChatsListItemStyle.avatar}
           />

@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const ChatsListItemStyle = StyleSheet.create({
   ChatRoomHeader__container: {
-    flex: 3,
+    flex: 1,
     flexDirection: 'row',
     width: '85%',
     height: 50,
-    marginLeft: '15%',
-    marginRight: 10,
+    marginLeft: 60,
+    // marginLeft: '15%',
+    // marginRight: 10,
     justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   ChatRoomHeader__avatar: {
     width: 35,

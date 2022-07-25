@@ -3,9 +3,15 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from '@expo/vector-icons';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import {
+  Image,
+  Pressable,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import ChatsListItemStyle from './ChatRoomHeaderStyle';
 
 export type ChatRoomHeaderProps = {
@@ -19,14 +25,20 @@ export type ChatRoomHeaderProps = {
 const ChatRoomHeader = (props: ChatRoomHeaderProps) => {
   const route = useRoute();
 
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate('Root');
+  };
   return (
     <View style={ChatsListItemStyle.ChatRoomHeader__container}>
-      <View style={ChatsListItemStyle.ChatRoomHeader__avatar}>
-        <Image
-          source={{ uri: props.ChatRoomProps.imageUri }}
-          style={ChatsListItemStyle.ChatRoomHeader__avatarImage}
-        />
-      </View>
+      <Pressable onPress={handlePress}>
+        <View style={ChatsListItemStyle.ChatRoomHeader__avatar}>
+          <Image
+            source={{ uri: props.ChatRoomProps.imageUri }}
+            style={ChatsListItemStyle.ChatRoomHeader__avatarImage}
+          />
+        </View>
+      </Pressable>
 
       <View style={ChatsListItemStyle.ChatRoomHeader__title}>
         <Text style={ChatsListItemStyle.ChatRoomHeader__name}>
