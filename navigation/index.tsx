@@ -24,6 +24,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import { RotateInUpLeft } from 'react-native-reanimated';
 import ChatRoomHeader from '../components/ChatRoomHeader/ChatRoomHeader';
+import ContactsScreen from '../screens/ContactsScreen';
 
 export default function Navigation({
   colorScheme,
@@ -109,6 +110,12 @@ function RootNavigator() {
             />
           ),
         })}
+      />
+
+      <Stack.Screen
+        name="Contacts"
+        component={ContactsScreen}
+        options={{ title: 'Contacts' }}
       />
 
       <Stack.Screen
