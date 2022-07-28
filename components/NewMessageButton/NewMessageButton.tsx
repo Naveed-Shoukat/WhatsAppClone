@@ -8,7 +8,6 @@ const NewMessageButton = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    // console.log('Contacts btn pressed');
     navigation.navigate('Contacts');
   };
   return (
