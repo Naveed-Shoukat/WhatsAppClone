@@ -1,14 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import Microphone from '../components/Microphone/Microphone';
 import { Text, View } from '../components/Themed';
 
 export default function CallsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calls</Text>
-      <Microphone />
     </View>
   );
 }
