@@ -12,7 +12,6 @@ import CameraVissionStyle from './CameraVisionStyle';
 import { Camera, CameraCapturedPicture } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
-import CameraScreen from '../../screens/CameraScreen';
 
 export type PhotoOptions = {
   quality: number;
@@ -38,7 +37,7 @@ const CameraVision = () => {
       setHasCameraPremission(cameraPermission.status === 'granted');
       setHasMediaLibraryPremission(mediaLibraryPermission.status === 'granted');
     })();
-  }, [CameraScreen]);
+  }, []);
 
   if (hasCameraPremission === null) {
     return (

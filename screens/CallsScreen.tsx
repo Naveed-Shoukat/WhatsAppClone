@@ -1,18 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
+import Microphone from '../components/Microphone/Microphone';
 import { Text, View } from '../components/Themed';
 
 export default function CallsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calls</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="/screens/CallsScreen.tsx" />
+      <Microphone />
     </View>
   );
 }
