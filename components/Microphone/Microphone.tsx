@@ -33,7 +33,8 @@ export default function useMicrophone() {
         'Premission denied to access Device Microphone. Please go to your device setting and allow Permission to use Microphone'
       );
     }
-
+    // instead of using console.warn try to use some snakes or other component
+    console.warn('Recording Started');
     try {
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: true,
@@ -58,6 +59,9 @@ export default function useMicrophone() {
         setRecording(undefined);
       });
     }
+
+    // instead of using console.warn try to use some snakes or other component
+    console.warn('Recording Ended');
   }
 
   return [startRecording, stopRecording];
