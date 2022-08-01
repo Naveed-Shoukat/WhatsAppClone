@@ -34,7 +34,7 @@ export default function useMicrophone() {
       );
     }
     // instead of using console.warn try to use some snakes or other component
-    console.warn('Recording Started');
+    // console.warn('Recording Started');
     try {
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: true,
@@ -61,7 +61,7 @@ export default function useMicrophone() {
     }
 
     // instead of using console.warn try to use some snakes or other component
-    console.warn('Recording Ended');
+    // console.warn('Recording Ended');
   }
 
   return [startRecording, stopRecording];
